@@ -10,7 +10,10 @@ export default class Modal extends Component {
             <ProductConsumer>
                 {(value)=>{
                     const {modalOpen, closeModal} = value;
-                    const {img, title, price} = value.modalProduct;
+                    // const img = value.modalProduct.fields.img.fields.file.url;
+                    // const title = value.modalProduct.fields.title;
+                    // const price = value.modalProduct.fields.price;
+
                     if(!modalOpen){
                         return null;
                     }
@@ -22,9 +25,9 @@ export default class Modal extends Component {
                                     <div className="row">
                                         <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize">
                                             <h5>item added</h5>
-                                            <img src={img} className="img-fluid" alt="product" />
-                                            <h5>{title}</h5>
-                                            <h5 className="text-muted">price: $ {price}</h5>
+                                            <img src={value.modalProduct.fields.img.fields.file.url} className="img-fluid" alt="product" />
+                                            <h5>{value.modalProduct.fields.title}</h5>
+                                            <h5 className="text-muted">price: $ {value.modalProduct.fields.price}</h5>
                                             <Link to="/" >
                                                 <ButtonContainer onClick={()=>{closeModal()}}>
                                                     continue shopping

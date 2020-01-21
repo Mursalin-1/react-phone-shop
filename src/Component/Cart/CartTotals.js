@@ -5,6 +5,7 @@ import PaypalButton from '../PaypalButton';
 function CartTotals({value, history}) {
     
     const { cartSubtotal, cartTax, cartTotal, clearCart} = value;
+    console.log(value, history)
     
     return (
         <React.Fragment>
